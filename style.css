@@ -211,6 +211,7 @@ form.sign-up-form {
 }
 
 .input-field {
+  border: 4px solid #fff;
   max-width: 380px;
   width: 100%;
     color: #ffffff;
