@@ -5,6 +5,21 @@
   padding: 0;
   box-sizing: border-box;
 }
+textarea{
+  width: 100%;
+  height: 20vh;
+  padding: 0 4px 40px;
+  background-color: rgb(8, 5, 62) ;
+  border-radius: 10px;
+  color: #fff;
+  outline: #fff;
+ filter: blur();
+  
+}
+textarea::placeholder{
+color: rgb(241, 231, 231);
+font-family: 'Franklin Gothic Medium', '
+}
 
 
 .date-container {
@@ -132,14 +147,21 @@ background-image: url(./img/Background.png);
   width: 170px;
 }
 .submitt{
+  top: 40px;
+  right: 5px;
+  rotate: 40deg;
+  backdrop-filter: blur(2px);
+  position: fixed;
+  width:auto;
   text-decoration: none;
-  color: #f1f8fc;
+  color: #ffffff;
   padding-left: 60px;
   text-align: center;
   border: transparent;
   padding: 10px;
   border-radius: 10px;
-  background-image: linear-gradient(-45deg,   #060b3b 0%,  #060b3b 100%);
+  box-shadow: 0 0 20px 1px rgba(8, 251, 231, 0.7);
+  background-image: linear-gradient(-45deg,   #20fff0 0%,  #060b3b 100%);
 }
 .container {
   position: relative;
@@ -201,6 +223,8 @@ form.sign-up-form {
 .nedo{
   height: 120%;
   z-index: 2;
+  width: 100%;
+ 
 
 }
 
@@ -216,7 +240,7 @@ form.sign-up-form {
   width: 100%;
     color: #ffffff;
     background-color:  #060b3b;
-  margin: 10px 0;
+  margin: 3px 0;
   height: 55px;
   border-radius: 55px;
   display: grid;
@@ -297,12 +321,14 @@ form.sign-up-form {
   border: none;
   outline: none;
   height: 49px;
-  border-radius: 49px;
+  border-radius: 45px;
   color: #fff;
   font-weight: 600;
   margin: 10px 0;
+  z-index: 10000;
   cursor: pointer;
   transition: 0.5s;
+
 }
 video{
   height: 200px;
@@ -310,6 +336,7 @@ video{
   top: 30px;
   right: 20px;
 }
+
 
 .panels-container {
   position: absolute;
@@ -348,6 +375,24 @@ video{
   justify-content: space-around;
   text-align: center;
   z-index: 6;
+  /* filter: sepia(100%); */
+  /* backdrop-filter: blur(5px); */
+}
+.float{
+  font-family: monospace;
+  color: #899899;
+}
+
+.radio{
+  position: absolute;
+  left: 70px;
+  margin-top: 3px;
+  filter: c;
+ 
+  
+}
+.check{
+  margin-top: 10px;
 }
 
 .left-panel {
@@ -355,14 +400,14 @@ video{
   padding: 3rem 17% 2rem 12%;
 }
 #selection{
-  
- 
  margin-top: -1px;
  border: 4px solid#fff;
  position: sticky;
  width: 400px;
  max-width: 100%;
+ font-size: medium;
 }
+
 
 .right-panel {
   pointer-events: none;
@@ -1023,6 +1068,12 @@ container {
     min-height: 800px;
     height: 100vh;
   }
+  .radio{
+    position: absolute;
+    left: 20%;
+    margin-top: 3px;
+    
+  }
   
   #logo{
     width: 140px;
@@ -1132,6 +1183,12 @@ container {
 @media (max-width: 570px) {
   form {
     padding: 0 1.5rem;
+  }
+  .radio{
+    position: absolute;
+    left: 5%;
+    margin-top: 3px;
+    
   }
  
   #logo{
