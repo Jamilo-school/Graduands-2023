@@ -10,6 +10,10 @@
     <link rel="stylesheet" href="style.css" />
     <title>Sign In</title>
     <link rel="shortcut icon" href="./img/schoologo.png" type="image/x-icon">
+    <!-- Add SweetAlert2 CSS and JavaScript -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js"></script>
+
   </head>
   <body> 
 
@@ -17,7 +21,7 @@
     <div class="container">
       <div class="forms-container">
         <div class="signin-signup">
-            <form action="https://formsubmit.co/geofreyonyango167@gmail.com" method="POST" autocomplete="off" enctype="multipart/form-data" class="nedo">
+            <form name="submit-to-google-sheet" method="POST" autocomplete="off" enctype="multipart/form-data" class="nedo">
               <form action="#" class="sign-up-form">
                   
            
@@ -50,34 +54,24 @@
 <h3 class="teachers">Teachers💫</h3> <br><br>
 <p>Curriculum coverage submission portal</p>
             <h6 class="title"></h6>
-            <form action="#" class="sign-in-form">
-              <select name="🧑‍⚕️Teachers name:" id="selection" class="input-field">
-                <option value="Teacher" >🧑‍⚕️ Select Teachers Name</option>
+            <form name="submit-to-google-sheet" class="sign-in-form">
+              <select name="Teachers name"class="input-field">
                 <option value=" Mr Oduor Geofrey onyango" >🧑‍⚕️ Mr Oduor Geofrey onyango</option>
                 <option value="Mr Calvin Ochieng Onjuro">🧑‍⚕️ Mr Calvin Ochieng Onjuro</option>
-                <option value="🧑‍⚕️ Madam Linet Radido">🧑‍⚕️ Madam Linet Radido</option>
-                <option value="🧑‍⚕️ Madam Linet Radido">🧑‍⚕️ Mr Jacob Ochieng Amoth</option>
-                <option value="🧑‍⚕️ Madam Linet Radido">🧑‍⚕️ Sir Clarance jumba</option>
-                <option value="🧑‍⚕️ Madam Linet Radido">🧑‍⚕️ Madam Linet Radido</option>
-                <option value="🧑‍⚕️ Madam Linet Radido">🧑‍⚕️ Madam lencer seje</option>
-                <option value="🧑‍⚕️ Madam Linet Radido">🧑‍⚕️ Madam Nancy Atieno</option>
-                <option value="🧑‍⚕️ Madam Linet Radido">🧑‍⚕️ Madam Grace Obillo</option>
-                <option value="🧑‍⚕️ Madam Linet Radido">🧑‍⚕️ Madam Juliet Mwasame</option>
-                <option value="🧑‍⚕️ Madam Linet Radido">🧑‍⚕️ Madam Everlyne Akoth</option>
-                <option value="🧑‍⚕️ Madam Linet Radido">🧑‍⚕️ Madam Caren Atieno </option>
+               <option value="Madam Caren Atieno ">🧑‍⚕️ Madam Caren Atieno </option>
                </select>
 
             <div class="input-field">
               <i class="fas fa-user"></i>
-              <input type="tel" placeholder="Official contact" name="Official name" required  autocomplete="off"  />
+              <input type="tel" placeholder="Official contact" name="Official Contact" required  autocomplete="off"  />
             </div>
             <div class="input-field">
               <i class="fa fa-cog" aria-hidden="true"></i>
-              <input type="email" placeholder="Valid Email Address" name="Password"  autocomplete="off"  />
+              <input type="email" placeholder="Valid Email Address" name="Valid Email Address"  autocomplete="off"  />
             </div>
             
           
-              <textarea name="textarea" placeholder="🧑‍⚕️Enter the class, Learning area{s} and their corresponding percentage coverage."  ></textarea> 
+              <textarea name="Subjects" placeholder="🧑‍⚕️Enter the class, Learning area{s} and their corresponding percentage coverage."  ></textarea> 
               <div class="check">
               <input type="checkbox" class="radio" checked  name="checked"> <p class="float"> &nbsp; I do acknowledge that the information provided here is true.</p>
             </div>
@@ -99,6 +93,54 @@
               <div id="date" class="date"></div>
             </div>
           </form>
+
+
+
+         <script>
+  const scriptURL = 'https://script.google.com/macros/s/AKfycbzftyzeuUi00M9x-oBbCMWxAWULJifiagcC1PGiZPk2XVvTR4bx_Zo63ZPiIS7_QucK/exec';
+  const form = document.forms['submit-to-google-sheet'];
+
+  form.addEventListener('submit', e => {
+    e.preventDefault();
+    fetch(scriptURL, { method: 'POST', body: new FormData(form) })
+      .then(response => {
+        if (response.status === 200) {
+          // Successful submission
+          Swal.fire({
+            title: 'Success!',
+            text: 'Submission Successful!',
+            icon: 'success',
+          });
+          form.reset(); // Reset the form if submission is successful
+        } else {
+          Swal.fire({
+            title: 'Error!',
+            text: 'Submission Failed',
+            icon: 'error',
+          });
+        }
+      })
+      .catch(error => {
+        console.error('Error!', error.message);
+        Swal.fire({
+          title: 'Error!',
+          text: 'Submission Failed',
+          icon: 'error',
+        });
+      });
+  });
+</script>
+
+          
+
+
+
+
+
+
+
+
+
           
 
           <audio id="successSound">

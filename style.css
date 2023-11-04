@@ -142,6 +142,54 @@ background-image: url(./img/Background.png);
    
  
 }
+
+
+  /* Custom styles for SweetAlert2 */
+  .swal2-popup {
+    background-color: #ffffff; /* Background color */
+    border: 2px solid #05ffb8; /* Border color */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1); /* Box shadow */
+  }
+
+  .swal2-title {
+    color: #007BFF; /* Title text color */
+    font-size: 24px; /* Title font size */
+  }
+
+  .swal2-content {
+    color: #333; /* Content text color */
+  }
+
+  .swal2-icon {
+    color: #007BFF; /* Icon color */
+  }
+
+  .swal2-actions {
+    display: flex;
+    justify-content: center;
+  }
+
+  .swal2-confirm {
+    background-color: #007BFF; /* Confirm button background color */
+  }
+
+  .swal2-confirm:hover {
+    background-color: #0056b3; /* Confirm button background color on hover */
+  }
+
+  .swal2-cancel {
+    background-color: #d33; /* Cancel button background color */
+  }
+
+  .swal2-cancel:hover {
+    background-color: #a00; /* Cancel button background color on hover */
+  }
+
+
+
+
+
 /* ////////////////////////// */
 .logo{
   width: 170px;
