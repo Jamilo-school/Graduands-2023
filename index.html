@@ -95,41 +95,52 @@
           </form>
 
 
-
-         <script>
-  const scriptURL = 'https://script.google.com/macros/s/AKfycbzftyzeuUi00M9x-oBbCMWxAWULJifiagcC1PGiZPk2XVvTR4bx_Zo63ZPiIS7_QucK/exec';
-  const form = document.forms['submit-to-google-sheet'];
-
-  form.addEventListener('submit', e => {
-    e.preventDefault();
-    fetch(scriptURL, { method: 'POST', body: new FormData(form) })
-      .then(response => {
-        if (response.status === 200) {
-          // Successful submission
-          Swal.fire({
-            title: 'Success!',
-            text: 'Submission Successful!',
-            icon: 'success',
-          });
-          form.reset(); // Reset the form if submission is successful
-        } else {
-          Swal.fire({
-            title: 'Error!',
-            text: 'Submission Failed',
-            icon: 'error',
-          });
-        }
-      })
-      .catch(error => {
-        console.error('Error!', error.message);
-        Swal.fire({
-          title: 'Error!',
-          text: 'Submission Failed',
-          icon: 'error',
-        });
-      });
-  });
-</script>
+          <script>
+            const scriptURL = 'https://script.google.com/macros/s/AKfycbzftyzeuUi00M9x-oBbCMWxAWULJifiagcC1PGiZPk2XVvTR4bx_Zo63ZPiIS7_QucK/exec';
+            const form = document.forms['submit-to-google-sheet'];
+          
+            form.addEventListener('submit', e => {
+              e.preventDefault();
+              
+              Swal.fire({
+                title: 'Submitting...',
+                text: 'Please wait',
+                icon: 'info',
+                showConfirmButton: false,
+                allowOutsideClick: false,
+              });
+          
+              fetch(scriptURL, { method: 'POST', body: new FormData(form) })
+                .then(response => {
+                  Swal.close(); // Close the initial "Submitting..." alert
+                  if (response.status === 200) {
+                    // Successful submission
+                    Swal.fire({
+                      title: 'Success!',
+                      text: 'Submission Successful!',
+                      icon: 'success',
+                    });
+                    form.reset(); // Reset the form if submission is successful
+                  } else {
+                    Swal.fire({
+                      title: 'Error!',
+                      text: 'Submission Failed',
+                      icon: 'error',
+                    });
+                  }
+                })
+                .catch(error => {
+                  console.error('Error!', error.message);
+                  Swal.close(); // Close the initial "Submitting..." alert
+                  Swal.fire({
+                    title: 'Error!',
+                    text: 'Submission Failed',
+                    icon: 'error',
+                  });
+                });
+            });
+          </script>
+          
 
           
 
